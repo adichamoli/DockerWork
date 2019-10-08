@@ -1,0 +1,8 @@
+sudo : required
+services :
+  - docker
+before-install :
+  - docker build -t adichamoli/dev_docker -f Dockerfile.dev .
+  
+script :
+  - docker run adichamoli/dev_docker npm run test -- -- coverage
